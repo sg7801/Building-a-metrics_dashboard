@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trial
+  annotations:
+    sidecar.jaegertracing.io/inject: 'true'
+    prometheus.io/scrape: "true"
+    prometheus.io/path: /metrics
+    prometheus.io/port: trialport
+  labels:
+    name: trial
+    release: prometheus
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: trial
+  template:
+    metadata:
+      labels:
+        app: trial
+    spec:
+      containers:
+      - name: trial
+        image: srishtiguleria/trial:latest
+        imagePullPolicy: Always
+        env:
+        - name: JAEGER_HOST
+          value: simpletest-agent.observability.svc.cluster.local
+        ports:
+        - name: trialport
+          containerPort: 8082
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trial
+  labels:
+    app: trial
+spec:
+  selector:
+    app: trial
+  ports:
+    - name: trial
+      protocol: TCP
+      port: 8082
+      targetPort: trialport
+  type: LoadBalancer
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: trial
+  namespace: monitoring
+  labels:
+    app: trial
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: trial
+  endpoints:
+  - port: trial
+    path: /metrics
+    interval: 15s
+  namespaceSelector:
+    matchNames:
+    - default
