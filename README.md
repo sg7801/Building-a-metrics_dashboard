@@ -32,7 +32,7 @@ kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operato
 kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/master/deploy/cluster_role_binding.yaml
 
 helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install mongodb --set auth.rootPassword=password,auth.username=srishti,auth.password=password7,auth.database=sample-mongodb bitnami/mongodb --kubeconfig /etc/rancher/k3s/k3s.yaml
+helm install mongodb --set auth.rootPassword=password,auth.username=srishti,auth.password=password7,auth.database=example-mongodb bitnami/mongodb --kubeconfig /etc/rancher/k3s/k3s.yaml
 ```
 
 **Note:** All the screenshots are stored in the `answer-img` directory.
