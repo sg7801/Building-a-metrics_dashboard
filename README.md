@@ -47,7 +47,7 @@ Run `kubectl` command to show the running pods and services for all components. 
 ![image](https://user-images.githubusercontent.com/61888364/143324989-41a8a4ef-7592-49ab-93d2-1f662a1461f7.png)
 - Pods under namespace observability
 ![image](https://user-images.githubusercontent.com/61888364/143325151-450430b7-bf52-47b6-94c3-4a631dacfc15.png)
-- All the pods in the cluster
+- All the pods in the kubernetes cluster
 ![image](https://user-images.githubusercontent.com/61888364/143325856-bf6ab339-0463-406a-a626-8f84bed47510.png)
 
 ## Setup the Jaeger and Prometheus source
