@@ -77,8 +77,7 @@ It is important to know why we want to measure certain metrics for our customer.
 
 ## Create a Dashboard to measure our SLIs
 Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
-![image](https://user-images.githubusercontent.com/61888364/143328436-46bf2710-32a6-4509-9bf8-c963e1421496.png)
-
+![1](https://user-images.githubusercontent.com/61888364/143501472-332f2270-bae8-4dfa-9ccc-b0749e4c0251.png)
 
 ## Tracing our Flask App
 We will create a Jaeger span to measure the processes on the backend. After filling in the span, I have provided a screenshot of it here. Also I provided a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
