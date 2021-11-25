@@ -110,12 +110,26 @@ Description: When I hit the frontend with the url path '/' with post request, it
 We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
 - HTTP Error Rate. More than 95% of all requests must execute without any errors.
 - Uptime. There must be atleast 99% uptime per month.
-- Latency. The response time of the requests should be less than 30ms per month.
+- Latency. The response time of the 90% requests should be less than 30ms per month.
+- Resource capcity: The usage of CPU and RAM must not exceed 90% per month.
 
 ## Building KPIs for our plan
-Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
-
+Now that we have our SLIs and SLOs, we create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first lets write them down here.
+- Error Rate. More than 95% of all requests must execute without any errors.
+- Uptime. There must be atleast 99% uptime per month.
+- Resource capcity: The usage of CPU and RAM must not exceed 90% per month.
 
 ## Final Dashboard
-*TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+Lets create a Dashboard containing graphs that capture all the metrics of the KPIs and adequately representing your SLIs and SLOs. We include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
 
+![DASH1](https://user-images.githubusercontent.com/61888364/143375159-4bac6972-7e91-4a5e-9008-fcc947c7760b.png)
+![DASH2](https://user-images.githubusercontent.com/61888364/143375165-ec79c350-f646-4563-acb9-44944ba036c5.png)
+
+- Average Response Time : It represents the **average response time measured per unit time**
+- Error Responses : It represents the **number of failed requests per month**
+- Successful Responses : It represents **total successful request per month**
+- Memory Usage : It represents the **memory usage of the Flask App**
+- Disk Usage : It represents the **consumtion of the disk drive**
+- CPU Usage : It represents the **CPU usage of the Flask App**
+- Deployment Uptime : It represents the **uptime of each back-end and front-end service**
+- Server Uptime : It represents the **Uptime of each instance**
