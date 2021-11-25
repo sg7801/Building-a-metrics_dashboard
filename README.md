@@ -10,7 +10,7 @@ In this project, I created the dashboards that use multiple graphs to monitor ou
 
 ![image](https://user-images.githubusercontent.com/61888364/142960531-48afd6c8-4603-49fc-ab14-8b0f23398929.png)
 
-## Installation Steps : 
+## Steps of Installation : 
 ```
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
@@ -38,53 +38,83 @@ helm install mongodb --set auth.rootPassword=password,auth.username=srishti,auth
 **Note:** All the screenshots are stored in the `answer-img` directory.
 
 ## Verify the monitoring installation
-
-*TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
+Run `kubectl` command to show the running pods and services for all components. Below are the screenshots of the output to verify the installation.
+- Services under namespace monitoring
+![image](https://user-images.githubusercontent.com/61888364/143324110-fd7bcafe-370e-41ac-a0c3-4abdd231fc8f.png)
+- Services under the namespace observability
+![image](https://user-images.githubusercontent.com/61888364/143324354-d4dc35d3-a879-41f8-968b-b3802e53f8d9.png)
+- Pods under namespace monitoring
+![image](https://user-images.githubusercontent.com/61888364/143324989-41a8a4ef-7592-49ab-93d2-1f662a1461f7.png)
+- Pods under namespace observability
+![image](https://user-images.githubusercontent.com/61888364/143325151-450430b7-bf52-47b6-94c3-4a631dacfc15.png)
+- All the pods in the cluster
+![image](https://user-images.githubusercontent.com/61888364/143325856-bf6ab339-0463-406a-a626-8f84bed47510.png)
 
 ## Setup the Jaeger and Prometheus source
-*TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+Expose Grafana to the internet and then setup Prometheus as a data source. Below is a screenshot of the home page after logging into Grafana.
+![image](https://user-images.githubusercontent.com/61888364/143328289-22278a2d-94ba-4a78-880b-ccf612d6b3e9.png)
+
+![grafana](https://user-images.githubusercontent.com/61888364/143326363-6f38cc4e-c78a-4d3c-bb13-acb2d84f9337.PNG)
 
 ## Create a Basic Dashboard
-*TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+Create a dashboard in Grafana that shows Prometheus as a source. Below is the screenshot of the same.
+![image](https://user-images.githubusercontent.com/61888364/143326528-286248e8-4502-491f-aa03-a7fa7ea5b837.png)
+![image](https://user-images.githubusercontent.com/61888364/143327032-bf25ba97-42d5-4804-a539-3c742d639dfc.png)
 
 ## Describe SLO/SLI
-*TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+### Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*?
+- Service Level Indicators are the metrics that let us know if we achieved our SLOs(Service Level Objectives) or not.
+- Service Level Indicators with respect to a SLO of monthly uptime would keep the track of the availability of the application via http code over a period of a month.
+- Service Level Indicators with respect to a SLO of request response time would measure the requests latency.
 
 ## Creating SLI metrics.
-*TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs?
+- First SLO would be **Latency**. This demonstrates the time taken to respond to a request.
+- Second SLO would be **Uptime**. This demonstrates the percentage of time the websites are available and functioning.
+- Third SLO would be **Failure Rate**. This demonstrates the amount of failures in unit of time.
+- Fourth SLO would be **Network Capacity**. This demonstrates the average bandwidth in unit time.
+- Fifth SLO would be **Resource Capacity**. This demonstrates the RAM and CPU usage amount.
 
 ## Create a Dashboard to measure our SLIs
-*TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+![image](https://user-images.githubusercontent.com/61888364/143328436-46bf2710-32a6-4509-9bf8-c963e1421496.png)
+
 
 ## Tracing our Flask App
-*TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
+We will create a Jaeger span to measure the processes on the backend. After filling in the span, I have provided a screenshot of it here. Also I provided a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
+![flask app](https://user-images.githubusercontent.com/61888364/143328627-fdb6a52e-fe00-479c-9ce0-ab7ae563d7e5.png)
 
 ## Jaeger in Dashboards
-*TODO:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
+Now that the trace is running, let's add the metric to our current Grafana dashboard. I have provided a screenshot of it here.
+![image](https://user-images.githubusercontent.com/61888364/143328806-bf21ea2f-fb0b-47f8-a8fa-dc220fab0235.png)
 
 ## Report Error
 *TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
 
 TROUBLE TICKET
 
-Name:
+Name: [Error on reference-app/frontend/app.py](https://github.com/sg7801/Building-a-metrics-dashboard/blob/main/reference-app/frontend/app.py)
 
-Date:
+Date: 25/11/21 18:35:10
 
-Subject:
+Subject: Cannot get any access to the url
 
-Affected Area:
+Affected Area: [reference-app/frontend/app.py](https://github.com/sg7801/Building-a-metrics-dashboard/blob/main/reference-app/frontend/app.py)
 
-Severity:
+Severity: High
 
-Description:
+Description: When I hit the frontend with the url path '/' with post request, it produces the error.
 
 
 ## Creating SLIs and SLOs
-*TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
+We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
+- HTTP Error Rate. More than 95% of all requests must execute without any errors.
+- Uptime. There must be atleast 99% uptime per month.
+- Latency. The response time of the requests should be less than 30ms per month.
 
 ## Building KPIs for our plan
-*TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
+Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
+
 
 ## Final Dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
