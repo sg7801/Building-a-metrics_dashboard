@@ -114,9 +114,9 @@ We want to create an SLO guaranteeing that our application has a 99.95% uptime p
 
 ## Building KPIs for our plan
 Now that we have our SLIs and SLOs, we create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first lets write them down here.
-- Error Rate. More than 95% of all requests must execute without any errors.
-- Uptime. There must be atleast 99% uptime per month.
-- Resource capcity: The usage of CPU and RAM must not exceed 90% per month.
+- Error Rate : This KPI was chosen because more than 95% of all requests must execute without any errors. Hence it will allow us to monitor the rate of error of our application.
+- Uptime :  This KPI was chosen since there must be atleast 99% uptime per month. Uptime KPI allows us to accurately measure these metrics.
+- Resource capcity: This KPI was chosen because the usage of CPU and RAM must not exceed 90% per month. Resource Capacity KPI allows us to monitor their consumption.
 
 ## Final Dashboard
 Lets create a Dashboard containing graphs that capture all the metrics of the KPIs and adequately representing your SLIs and SLOs. We include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
