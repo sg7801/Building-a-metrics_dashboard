@@ -88,7 +88,7 @@ Now that the trace is running, let's add the metric to our current Grafana dashb
 ![image](https://user-images.githubusercontent.com/61888364/143328806-bf21ea2f-fb0b-47f8-a8fa-dc220fab0235.png)
 
 ## Report Error
-*TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
+Using the template below, we wrote a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue. A screenshot of the tracer span is included to demonstrate how we can use a tracer to locate errors easily.
 
 TROUBLE TICKET
 
