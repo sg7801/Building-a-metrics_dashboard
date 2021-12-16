@@ -62,7 +62,7 @@ Create a dashboard in Grafana that shows Prometheus as a source. Below is the sc
 ![image](https://user-images.githubusercontent.com/61888364/143327032-bf25ba97-42d5-4804-a539-3c742d639dfc.png)
 
 ## Describe SLO/SLI
-### Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*?
+We will describe, in our own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time* :
 - Service Level Indicators are the metrics that let us know if we achieved our SLOs(Service Level Objectives) or not.
 - Service Level Indicators with respect to a SLO of monthly uptime would keep the track of the availability of the application via http code over a period of a month.
 - Service Level Indicators with respect to a SLO of request response time would measure the requests latency.
